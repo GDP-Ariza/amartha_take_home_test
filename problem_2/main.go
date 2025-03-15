@@ -96,18 +96,19 @@ func reconciliation(transationPath string, bankStatementPaths []string, startDat
 	fmt.Printf("Disrepancies: %s\n", deltaDiff.String())
 	fmt.Printf("\n\n")
 	fmt.Println("===============================================================")
-	fmt.Println("Unmatched transactions:")
+	fmt.Printf("Total unmatched transactions: %d\n", len(mapTrx))
+	fmt.Println("Details:")
 	for _, val := range mapTrx {
 		fmt.Println(val.String())
 	}
 	fmt.Printf("\n\n")
 	fmt.Println("===============================================================")
-	fmt.Println("Unmatched bank statements:")
+	fmt.Printf("Total unmatched bank statements: %d\n", len(unmatchedBankStatements))
+	fmt.Println("Details:")
 	for _, arr := range unmatchedBankStatements {
 		for _, val := range arr {
 			fmt.Println(val.String())
 		}
-		fmt.Println()
 	}
 
 	return nil
