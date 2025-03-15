@@ -9,7 +9,14 @@ const TIME_FORMAT = "2006-01-02 15:04:05"
 const DATE_FORMAT = "2006-01-02"
 
 func main() {
-	err := reconciliation("transactions.csv", []string{"bca_statements.csv", "mandiri_statements.csv"}, "2025-01-03", "2025-01-03")
+	transactionFilePath := "transactions.csv"
+	bankStatementPaths := []string{
+		"bca_statements.csv",
+		"mandiri_statements.csv",
+	}
+	startDate := "2025-01-03"
+	endDate := "2025-01-03"
+	err := reconciliation(transactionFilePath, bankStatementPaths, startDate, endDate)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
